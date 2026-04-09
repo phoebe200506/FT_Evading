@@ -21,7 +21,7 @@ public:
 	AAutoCannon();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AutoCannon")
-	AFT_EvadeProjectile* ProjectileToSpawn;
+	TSubclassOf <class AFT_EvadeProjectile> ProjectileToSpawn;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AutoCannon")
 	UStaticMeshComponent* CannonMesh;
 protected:
