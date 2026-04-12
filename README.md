@@ -11,7 +11,7 @@ Since we are using a varient project some of the script for the character are in
 - Adjust the player and the projectiles collisions so if the player performs a dash they will pass throught the projectile
 ## Hints  
 
-
+To do this task you should use [collision layers](https://dev.epicgames.com/documentation/unreal-engine/collision-in-unreal-engine---overview). By putting colliders into layer we can decide when functionality should occur, e.g. a player can ignore a certian wall collider while enemies cannot. 
 
 ## Changes from base project
 
@@ -31,7 +31,7 @@ Some basic rotational code
 ## Medium
 - I have done a simple timer, in reality you shout use the FTimer, see the an overview [here](https://tomlooman.com/unreal-engine-cpp-timers/) and try to replace the shoot with this technique 
 - If the player hits the projectile while not dashing, move the player back to the start position (**SetActorLocation**)
-- Redesign the map to expand on the use of the dash
+- Redesign the map to expand on the use of the dash mechanic
 
 ## Hard
 - Notice in the projectile we manually bind to the OnHit Function:
@@ -43,7 +43,8 @@ CollisionComp->BodyInstance.SetCollisionProfileName("Projectile");
 CollisionComp->OnComponentHit.AddDynamic(this, &AFT_EvadeProjectile::OnHit);		// set up a notification for when this component hits something blocking
 ``` 
 If you have done the I-Frame Collision layers properly you would have set the collision layer as well. Try to create an extra [smaller collision box](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Components/UBoxComponent?application_version=5.5) on top of the projectile, that will allow the player to land and jump off it, like [bullet bill in Mario](https://www.youtube.com/watch?v=Rk8kbhmaHwc&t). This is one way of doing the task, if you prefer trying other techniques feel free
-- Create a moving platform for the player, you can ether move between two point in code or y ou may want to base if of two actor locations.
+- Create a moving platform for the player, you can ether move between two points (**FVector**) in code or a more complete it to create an array of actors that define a path.
+- Test out other techniques use the [**Unreal Sequencer**](https://unrealcommunity.wiki/sequencer-d660d1) or expand the rotation code to objects like [swinging axes.](https://www.youtube.com/watch?v=L-OfAJRahEI) 
 
 # Reference
 Content is made by Connah Kendrick (Connah.Kendrick@mmu.ac.uk) using the Unreal Engine FPS Template for the MMU 1st year Game Mechanics Module taught to both Game Development and Game Design Students. 
