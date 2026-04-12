@@ -42,7 +42,7 @@ Some basic rotational code
 - Redesign the map to expand on the use of the dash mechanic
 
 ## Hard
-- Notice in the projectile we manually bind to the OnHit Function:
+- Notice in the projectile we manually **bind** to a **user-made OnHit** Function:
 ```
 // Use a sphere as a simple collision representation
 CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
@@ -50,7 +50,7 @@ CollisionComp->InitSphereRadius(160.0f);
 CollisionComp->BodyInstance.SetCollisionProfileName("Projectile");
 CollisionComp->OnComponentHit.AddDynamic(this, &AFT_EvadeProjectile::OnHit);		// set up a notification for when this component hits something blocking
 ``` 
-If you have done the I-Frame Collision layers properly you would have set the collision layer as well. Try to create an extra [smaller collision box](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Components/UBoxComponent?application_version=5.5) on top of the projectile, that will allow the player to land and jump off it, like [bullet bill in Mario](https://www.youtube.com/watch?v=Rk8kbhmaHwc&t). This is one way of doing the task, if you prefer trying other techniques feel free
+If you have done the I-Frame Collision layers properly you would have set the collision layer as well. Try to create an extra [smaller collision box](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Components/UBoxComponent?application_version=5.5) on top of the projectile that isn't binded to that function, that will allow the player to land and jump off it, like [bullet bill in Mario](https://www.youtube.com/watch?v=Rk8kbhmaHwc&t). This is one way of doing the task, if you prefer trying other techniques feel free
 - Create a moving platform for the player, you can ether move between two points (**FVector**) in code or a more complete it to create an array of actors that define a path.
 - Test out other techniques use the [**Unreal Sequencer**](https://unrealcommunity.wiki/sequencer-d660d1) or expand the rotation code to objects like [swinging axes.](https://www.youtube.com/watch?v=L-OfAJRahEI) 
 
