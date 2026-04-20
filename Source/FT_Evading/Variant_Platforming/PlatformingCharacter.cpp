@@ -236,7 +236,7 @@ void APlatformingCharacter::DoDash()
 	// ignore the input if we've already dashed and have yet to reset
 	if (bHasDashed)
 		return;
-
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Dodge"));
 	// raise the dash flags
 	bIsDashing = true;
 	bHasDashed = true;
@@ -302,7 +302,7 @@ void APlatformingCharacter::EndDash()
 {
 	// restore gravity
 	GetCharacterMovement()->GravityScale = 2.5f;
-
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Pawn"));
 	// reset the dashing flag
 	bIsDashing = false;
 
